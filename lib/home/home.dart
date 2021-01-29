@@ -2,8 +2,6 @@ import 'package:cokitchen/home/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
-
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
 
@@ -30,17 +28,16 @@ class _HomeState extends State<Home> {
       width: 300.0,
       color: Colors.red,
     ),
-    
   ];
   final String foodAsset = 'assets/food.svg';
   final String percentAsset = 'assets/%.svg';
 
-
-  void _ontapItem(int index){
+  void _ontapItem(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,23 +56,19 @@ class _HomeState extends State<Home> {
               color: Color(0xffFF0000),
               height: 19.0,
               width: 19.0,
-              
             ),
             label: 'Food',
             backgroundColor: Colors.white,
-
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Explore',
             backgroundColor: Colors.white,
-
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.restaurant),
             label: 'Orders',
             backgroundColor: Colors.white,
-
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
@@ -89,11 +82,9 @@ class _HomeState extends State<Home> {
               color: Color(0xffFF0000),
               height: 19.0,
               width: 19.0,
-              
             ),
             label: 'Deals',
             backgroundColor: Colors.white,
-
           ),
         ],
         type: BottomNavigationBarType.fixed,
@@ -107,4 +98,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-

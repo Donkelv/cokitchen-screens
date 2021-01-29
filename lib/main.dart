@@ -3,14 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/foundation.dart' show TargetPlatform;
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
-
-
-
-
 
 class MyApp extends StatelessWidget {
   @override
@@ -26,10 +22,6 @@ class MyApp extends StatelessWidget {
       ) */
 
       home: Home(),
-
-
-      
     );
   }
 }
-
