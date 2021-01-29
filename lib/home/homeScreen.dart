@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'topHomeSection.dart';
+import 'trackOrderButton.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -10,8 +11,13 @@ class HomeScreen extends StatelessWidget {
 
 
 
+
   static TextEditingController _searchController;
   static String menuAsset = "assets/icon1.svg";
+  static List <String> imageList = <String>[
+    "assets/image 1.png",
+    "assets/image 2.png"
+  ];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -28,36 +34,35 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   TopHomeSection(size: size, searchController: _searchController, menuAsset: menuAsset),
+                  Padding(padding: EdgeInsets.symmetric(vertical: 10.0),
+                     child: Container(
+                       height: 200.0,
+                       child: ListView.builder(
+                         scrollDirection: Axis.horizontal,
+                         shrinkWrap: true,
+                         itemCount: imageList.length,
+                         itemBuilder: (context, index) => Padding(
+                           padding: const EdgeInsets.only(right: 10.0),
+                           child: Container(
+                             //height: 200.0,
+                             //width: 350.0,
+                             decoration: BoxDecoration(
+                               borderRadius: BorderRadius.circular(20.0),
+                               image: DecorationImage(
+                                 image: AssetImage(imageList[index]),
+                                 fit: BoxFit.fill,
+                               )
+                             ),
+                           ),
+                         ),
+                       ),
+                     ),
+                  ),
                 ],
               ),
             ),
             //LIFO
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Container(
-                  color: Colors.transparent,
-                  width: size.width,
-                  height: 60.0,
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: Material(
-                      color: Color(0xff47AF30),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5.0),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Track Order",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            TrackOrderButton(size: size),
           ],
         ),
       ),
