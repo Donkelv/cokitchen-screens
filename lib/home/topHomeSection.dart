@@ -58,7 +58,7 @@ class TopHomeSection extends StatelessWidget {
               ],
             ),
             Container(
-              height: 34,
+              height: 34.0,
               width: 34.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
